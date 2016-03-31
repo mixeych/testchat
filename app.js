@@ -4,8 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var config = require('./config');
 var app = express();
+var session = require('express-session'); // требует установки через npm, express 4 не пддерживает
+var mongoStore = require('connect-mongo')(session);
+var mongoose = require('./libs/mongoose');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -17,6 +20,19 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  secret: config.get('session:secret'),
+  key: config.get('session:sid'),
+  store: new mongoStore({mongooseConnection: mongoose.connection}), // coonection - свойство с парамерами подключения
+  resave: true,
+  saveUninitialized: true
+}));
+
+app.use(function(req, res, next){
+  req.session.numberOfUse = req.session.numberOfUse + 1||1;
+  res.send("Visits: "+req.session.numberOfUse);
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 
@@ -35,7 +51,6 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
 
   app.use(function(err, req, res, next) {
-    console.log(11111111);
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,

@@ -1,4 +1,13 @@
 {
   "port": "3000",
-  "db": "mongodb://localhost/chat"
+  "db": "mongodb://localhost/chat",
+  "session": {
+    "secret": "killerJoe",
+    "key": "sid",
+    "cookie": {
+      "path": "/",
+      "httpOnly": true,
+      "maxAge": null
+    }
+  }
 }
