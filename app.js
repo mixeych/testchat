@@ -28,10 +28,10 @@ app.use(session({
   saveUninitialized: true
 }));
 
-app.use(function(req, res, next){
+/*app.use(function(req, res, next){
   req.session.numberOfUse = req.session.numberOfUse + 1||1;
   res.send("Visits: "+req.session.numberOfUse);
-});
+});*/
 
 app.use(express.static(path.join(__dirname, 'public')));
 

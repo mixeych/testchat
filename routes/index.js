@@ -16,6 +16,24 @@ module.exports = function(app){
     });
 
   });
+  app.get('/login', function(req, res, next) {
+      res.render('login');
+  });
+
+    app.post('/login', function(req, res, next){
+        res.render('login', {name: req.body.name, password: req.body.password});
+        User.findOne({username: name}, function(err, user){
+            if(user){
+                if(user.checkPassword(req.body.password)){
+                    // 200 ок
+                }else{
+                    // 403 forbidden
+                }
+            }else{
+                // user not found
+            }
+        });
+    });
 
   app.get('/user/:id', function(err, req, res, next) {
      try{
@@ -36,4 +54,7 @@ module.exports = function(app){
     });
 
   });
+
+
+
 };

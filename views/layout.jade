@@ -3,5 +3,10 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='js/main.js')
+
   body
+    div.login
+      a(href='/login') Войти
+    a(href='/') Главная
     block content
