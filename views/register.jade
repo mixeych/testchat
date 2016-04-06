@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    -if(message)
+        h4= message
+    form(method='post', action='/register')
+        Label email
+            input(type='text' name='email' placeholder="email")
+        br
+        Label name
+            input(type='text' name='name' placeholder="name")
+        br
+        label Password
+            input(type='password', name='password')
+        br
+        input(type='submit', value="ok")
+

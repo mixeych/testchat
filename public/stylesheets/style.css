@@ -9,3 +9,6 @@ a {
 .login{
   float: right;
 }
+.login a{
+  margin-right:10px;
+}

@@ -2,8 +2,10 @@ extends layout
 
 block content
     form(method='post', action='/login')
-        Label Name
-            input(type='text' name='name' placeholder="Name" value=name)
+        Label email
+            input(type='text' name='email' placeholder="email" value=name)
+        br
         label Password
             input(type='password', name='password', value=password)
+        br
         input(type='submit', value="ok")
