@@ -1,6 +1,8 @@
 extends layout
 
 block content
+    -if(message)
+        h4= message
     form(method='post', action='/login')
         Label email
             input(type='text' name='email' placeholder="email" value=name)
