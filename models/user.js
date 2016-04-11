@@ -5,7 +5,6 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
     username: {
         type: String,
-        unique: true,
         reuired: true
     },
     hashedPassword: {
@@ -17,6 +16,8 @@ var userSchema = new Schema({
         reuired: true
     },
     email: {
+        reuired: true,
+        unique: true,
         type: String
     },
     createdAt: {

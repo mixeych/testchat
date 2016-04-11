@@ -31,7 +31,8 @@ function createUsers(callback){
         function(callback){
             var user1 = new User({
                 username: "vasya",
-                password: "1111"
+                password: "1111",
+                email: "sfa@sdfsdf"
             });
             user1.save(function(err, user1){
                 if(err){
@@ -43,7 +44,8 @@ function createUsers(callback){
         function(callback){
             var user2 = new User({
                 username: "kolya",
-                password: "1234"
+                password: "1234",
+                email: "sfa@sdfsdsdf"
             });
             user2.save(function(err, user2){
                 if(err){
@@ -55,7 +57,8 @@ function createUsers(callback){
         function(callback){
             var user3 = new User ({
                 username: "petya",
-                password: "1111"
+                password: "1111",
+                email: "sfa@s354df"
             });
             user3.save(function(err, user3){
                 if(err){
