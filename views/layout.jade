@@ -7,11 +7,17 @@ html
     script(src='js/main.js')
 
   body
+    form#dologout(action="/logout", method="post", style="display:none")
     div.login
       -if(!user)
         a(href='/login') Sign In
         a(href='/register') Sign Up
       -else
         a#logout(href='#') Log out
-    a(href='/') Main
+    div.menu-main
+      a(href='/') Main
+      -if(user)
+        a(href='/chat') Chat
     block content
+
+
