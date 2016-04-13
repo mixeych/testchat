@@ -1,8 +1,15 @@
-var socket = io.connect('http://localhost:3000');
+/*var socket = io.connect('http://localhost:3000');
+
 socket.on("chat", function (data){
     $("#chat ul").append("<li>"+data+"</li>");
 });
 $(document).ready(function(){
+    socket.on('connect', function(){
+        $("#chat p").text('connection is established');
+    });
+    socket.on('disconnect', function(){
+        $("#chat p").text('connection is failed');
+    });
     $("button").click(function(){
         var message = $("#sender").val();
 
@@ -12,4 +19,4 @@ $(document).ready(function(){
         });
 
     })
-});
+});*/

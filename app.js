@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
   secret: config.get('session:secret'),
-  key: config.get('session:sid'),
+  key: config.get('session:key'),
   store: new mongoStore({mongooseConnection: mongoose.connection}), // coonection - свойство с парамерами подключения
   resave: true,
   saveUninitialized: true
