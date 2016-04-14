@@ -8,6 +8,7 @@ block content
     div#chat
         p
         ul
-    input(id="sender" type="text" placeholder="enter your message")
-    button Send
+    form.chat-action(action='' method='post')
+        input(id="sender" type="text" placeholder="enter your message")
+        button Send
 
